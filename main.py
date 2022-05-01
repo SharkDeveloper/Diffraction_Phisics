@@ -31,17 +31,18 @@ class app(Ui_MainWindow):
         self.axis_x.setTickCount(10)
         self.axis_x.setLabelFormat("%i")
         self.axis_x.setTitleText("I(x)")
-        self.axis_x.setMax(3000)
-        self.axis_x.setMin(-3000)
+        self.axis_x.setMax(1)
+        self.axis_x.setMin(0)
+        self.axis_x.setReverse(True)
         #y
         self.axis_y = PySide6.QtCharts.QValueAxis()
         self.axis_y.setTickCount(10)
         self.axis_y.setTitleText("Экран (x)") 
-        self.axis_y.setMax(1)
-        self.axis_y.setMin(0)
+        self.axis_y.setMax(3000)
+        self.axis_y.setMin(-3000)
 
 
-       
+        self.plot.addAxis(self.axis_y,QtCore.Qt.AlignRight)
         self.plot.setAxisX(self.axis_x, self.series)
         self.plot.setAxisY(self.axis_y, self.series)
         self.plot.setAxisX(self.axis_x,self.candle_series)
@@ -50,13 +51,13 @@ class app(Ui_MainWindow):
         #Настройка осей и и линии
         #self.plot.createDefaultAxes()
         #elf.plot.legend().hide()   
-        self.plot.addAxis(self.axis_y,QtCore.Qt.AlignRight)
+        
         
 
         self.plot.legend().setVisible(False)
         self.graphicsView.setMinimumWidth(330)
         #масштаб
-        self.graphicsView.setRubberBand(QChartView.VerticalRubberBand)
+        self.graphicsView.setRubberBand(QChartView.HorizontalRubberBand)
 
         self.graphicsView.setChart(self.plot)
         self.pushButton.clicked.connect(self.start)
@@ -70,11 +71,11 @@ class app(Ui_MainWindow):
         coordinates = dif_for_slit(L,b)
         for i in range(size(coordinates[0])-1,0,-1):
             print(-coordinates[0][i],coordinates[1][i])
-            self.series.append(-coordinates[0][i],coordinates[1][i]) 
-        self.series.append(0,1)
+            self.series.append(coordinates[1][i],-coordinates[0][i]) 
+        self.series.append(1,0)
         for i in range(0,size(coordinates[0])):
-            print(coordinates[0][i],coordinates[1][i])
-            self.series.append(coordinates[0][i],coordinates[1][i]) 
+            print(coordinates[1][i],coordinates[0][i])
+            self.series.append(coordinates[1][i],coordinates[0][i]) 
              
         
 
