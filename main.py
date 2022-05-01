@@ -20,62 +20,62 @@ class app(Ui_MainWindow):
         self.setupUi(MainWindow)
         self.retranslateUi(MainWindow)
         self.plot = QChart()
-        self.series = PySide6.QtCharts.QSplineSeries()
+        self.series = PySide6.QtCharts.QLineSeries()
         self.candle_series =  PySide6.QtCharts.QCandlestickSeries()
         self.plot.addSeries(self.series)
         self.plot.addSeries(self.candle_series)
 
-        #self.plot.createDefaultAxes()
-        #elf.plot.legend().hide()   
+       
         # x   
         self.axis_x = PySide6.QtCharts.QValueAxis()
         self.axis_x.setTickCount(10)
         self.axis_x.setLabelFormat("%i")
-        self.axis_x.setTitleText("Экран (x)")
-        self.axis_x.setMax(10)
-        self.axis_x.setMin(-10)
+        self.axis_x.setTitleText("I(x)")
+        self.axis_x.setMax(3000)
+        self.axis_x.setMin(-3000)
         #y
         self.axis_y = PySide6.QtCharts.QValueAxis()
         self.axis_y.setTickCount(10)
-        self.axis_y.setTitleText("I(x)")
+        self.axis_y.setTitleText("Экран (x)") 
         self.axis_y.setMax(1)
         self.axis_y.setMin(0)
-        self.axis_y.setReverse(True)
 
 
-        self.plot.addAxis(self.axis_x,QtCore.Qt.AlignRight)
-        #self.plot.addAxis(self.axis_y,QtCore.Qt.Align)
-        self.plot.setAxisY(self.axis_x, self.series)
-        self.plot.setAxisX(self.axis_y, self.series)
-        self.plot.setAxisY(self.axis_x,self.candle_series)
-        self.plot.setAxisX(self.axis_y,self.candle_series) 
+       
+        self.plot.setAxisX(self.axis_x, self.series)
+        self.plot.setAxisY(self.axis_y, self.series)
+        self.plot.setAxisX(self.axis_x,self.candle_series)
+        self.plot.setAxisY(self.axis_y,self.candle_series) 
 
+        #Настройка осей и и линии
+        #self.plot.createDefaultAxes()
+        #elf.plot.legend().hide()   
+        self.plot.addAxis(self.axis_y,QtCore.Qt.AlignRight)
         
-        
+
         self.plot.legend().setVisible(False)
         self.graphicsView.setMinimumWidth(330)
         #масштаб
-        #self.graphicsView.setRubberBand(QChartView.)
+        self.graphicsView.setRubberBand(QChartView.VerticalRubberBand)
 
-        #
         self.graphicsView.setChart(self.plot)
         self.pushButton.clicked.connect(self.start)
                 
-                
-       
+ 
     def start(self):
         self.show_difract(self.lineEdit_2.text(),self.lineEdit.text())
 
     def show_difract(self,L,b):
+
         coordinates = dif_for_slit(L,b)
+        for i in range(size(coordinates[0])-1,0,-1):
+            print(-coordinates[0][i],coordinates[1][i])
+            self.series.append(-coordinates[0][i],coordinates[1][i]) 
+        self.series.append(0,1)
         for i in range(0,size(coordinates[0])):
-            if i%2 == 0:
-                print(0,float(coordinates[0][i]))
-                self.series.append(0,float(coordinates[0][i]))
-            else:
-                count = int(i/2)
-                print(coordinates[1][count],coordinates[0][i])
-                self.series.append(coordinates[1][count],coordinates[0][i])   
+            print(coordinates[0][i],coordinates[1][i])
+            self.series.append(coordinates[0][i],coordinates[1][i]) 
+             
         
 
 if __name__ == "__main__":
