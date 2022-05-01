@@ -57,6 +57,7 @@ class app(Ui_MainWindow):
         #масштаб
         #self.graphicsView.setRubberBand(QChartView.)
 
+        #
         self.graphicsView.setChart(self.plot)
         self.pushButton.clicked.connect(self.start)
                 
