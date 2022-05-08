@@ -1,1 +1,1 @@
-
+self.graphicsView.setMouseTracking(True)

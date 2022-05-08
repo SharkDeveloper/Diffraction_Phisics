@@ -17,7 +17,6 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtOpenGLWidgets import QOpenGLWidget
 from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QMainWindow,
     QPushButton, QSizePolicy, QTabWidget, QVBoxLayout,
@@ -133,12 +132,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.label_5)
 
-        self.openGLWidget = QOpenGLWidget(self.frame_3)
-        self.openGLWidget.setObjectName(u"openGLWidget")
-        self.openGLWidget.setMinimumSize(QSize(100, 0))
-
-        self.horizontalLayout_3.addWidget(self.openGLWidget)
-
         self.frame = QFrame(self.frame_3)
         self.frame.setObjectName(u"frame")
         self.frame.setFrameShape(QFrame.StyledPanel)
@@ -147,8 +140,31 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.graphicsView = QChartView(self.frame)
         self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setMouseTracking(True)
+        brush = QBrush(QColor(0, 0, 0, 255))
+        brush.setStyle(Qt.SolidPattern)
+        self.graphicsView.setBackgroundBrush(brush)
 
         self.verticalLayout_3.addWidget(self.graphicsView)
+
+        self.frame_5 = QFrame(self.frame)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout = QHBoxLayout(self.frame_5)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.label_3 = QLabel(self.frame_5)
+        self.label_3.setObjectName(u"label_3")
+
+        self.horizontalLayout.addWidget(self.label_3)
+
+        self.label_4 = QLabel(self.frame_5)
+        self.label_4.setObjectName(u"label_4")
+
+        self.horizontalLayout.addWidget(self.label_4)
+
+
+        self.verticalLayout_3.addWidget(self.frame_5)
 
 
         self.horizontalLayout_3.addWidget(self.frame)
@@ -198,6 +214,8 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u043c          b(\u041d\u043c) =", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c", None))
         self.label_5.setText("")
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.page1.setTabText(self.page1.indexOf(self.Slit_page), QCoreApplication.translate("MainWindow", u"\u0414\u0438\u0444\u0440\u0430\u043a\u0446\u0438\u044f \u043d\u0430 \u0449\u0435\u043b\u0438", None))
         self.page1.setTabText(self.page1.indexOf(self.tabWidgetPage2), QCoreApplication.translate("MainWindow", u"\u0414\u0438\u0444\u0440\u0430\u043a\u0446\u0438\u044f \u043d\u0430 \u043e\u0434\u043d\u043e\u043c\u0435\u0440\u043d\u043e\u0439 \u0440\u0435\u0448\u0435\u0442\u043a\u0435", None))
     # retranslateUi
