@@ -1,12 +1,9 @@
 
-from ctypes import alignment, sizeof
-import fractions
+
 import sys
-import os
-import time
-from traceback import walk_stack
+
 from numpy import size
-from pandas import Series
+
 from MainWindow import Ui_MainWindow
 from PySide6 import QtGui,QtCore
 from PySide6.QtWidgets import QWidget,QMessageBox,QApplication,QMainWindow,QPushButton,QAbstractButton,QGraphicsView
@@ -15,7 +12,7 @@ from PySide6.QtGui import QPainter,QMouseEvent,QCursor
 from PySide6.QtCore import Signal
 import PySide6.QtCharts 
 from formulas import dif_for_grid, dif_for_slit
-import PyQt5
+
 
 
 
