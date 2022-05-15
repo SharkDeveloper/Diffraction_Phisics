@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'MainWindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.3.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -129,7 +129,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.label_9 = QLabel(self.frame_3)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setPixmap(QPixmap(u"image/img-qo4c_Q.png"))
+        self.label_9.setPixmap(QPixmap(u"img-qo4c_Q.png"))
 
         self.horizontalLayout_3.addWidget(self.label_9)
 
@@ -241,7 +241,7 @@ class Ui_MainWindow(object):
         self.label_8 = QLabel(self.frame_8)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMaximumSize(QSize(16777215, 99999))
-        self.label_8.setPixmap(QPixmap(u"image/\u0434\u0438\u0444\u0440\u0435\u04482.jpg"))
+        self.label_8.setPixmap(QPixmap(u"\u0434\u0438\u0444\u0440\u0435\u04482.jpg"))
         self.label_8.setScaledContents(True)
 
         self.horizontalLayout_4.addWidget(self.label_8, 0, Qt.AlignHCenter|Qt.AlignVCenter)

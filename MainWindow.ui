@@ -199,7 +199,7 @@
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap>image/img-qo4c_Q.png</pixmap>
+                       <pixmap>img-qo4c_Q.png</pixmap>
                       </property>
                      </widget>
                     </item>
@@ -355,7 +355,7 @@
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap>image/дифреш2.jpg</pixmap>
+                       <pixmap>дифреш2.jpg</pixmap>
                       </property>
                       <property name="scaledContents">
                        <bool>true</bool>
