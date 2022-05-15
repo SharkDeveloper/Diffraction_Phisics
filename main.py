@@ -23,7 +23,7 @@ class app(QMainWindow,Ui_MainWindow):
         self.setupUi(self)
         self.retranslateUi(self)
         self.plot = QChart()
-        self.series = PySide6.QtCharts.QLineSeries()
+        self.series = PySide6.QtCharts.QSplineSeries()
         self.candle_series =  PySide6.QtCharts.QCandlestickSeries()
         
         self.graphicsView.viewport().installEventFilter(self)
@@ -61,7 +61,7 @@ class app(QMainWindow,Ui_MainWindow):
         #y
         self.axis_y = PySide6.QtCharts.QValueAxis()
         self.axis_y.setTickCount(5)
-        self.axis_y.setTitleText("Экран (x)") 
+        self.axis_y.setTitleText("x") 
         self.axis_y.setMax(max(self.coordinates[0]))
         self.axis_y.setMin(-max(self.coordinates[0]))
 
